@@ -4,23 +4,38 @@ import HighlightNews from "../modules/highlightNews.js";
 
 class HomePageController {
 
-    static async newHighlightNewsMobile() {
+    static async newHighlightNews() {
         const highlight = document.querySelector(".highlight");
         highlight.innerHTML = "";
 
-        const news = await Request.getData();
-        const newsID = Math.floor(Math.random() * (11 - 2 + 1)) + 2;
+        const newsData = await Request.getData();
+        const randomId = Math.floor(Math.random() * (11 - 2 + 1)) + 2;
 
-        for(let i = 0; i < news.length; i++) {
+        for(let i = 0; i < newsData.length; i++) {
 
-            if(news[i].id == newsID) {
+            if(newsData[i].id == randomId) {
 
-                const newHighlight = new HighlightNews(news[i].imagem, news[i].categoria, news[i].titulo, news[i].resumo, news[i].fonte, news[i].noticia_completa);
+                const newHighlight = new HighlightNews (newsData[i].imagem, newsData[i].categoria, newsData[i].titulo, newsData[i].resumo, newsData[i].fonte, newsData[i].noticia_completa);
 
-                const highlightCard = newHighlight.createHighlightMobile();
+                const highlightCard = newHighlight.createHighlight();
 
                 highlight.append(highlightCard);
             }
+        };
+    };
+
+    static async showCards() {
+        const cardsContainer = document.querySelector(".cards--container");
+        cardsContainer.innerHTML = "";
+
+        const cardsData = await Request.getData();
+
+        for(let i = 0; i < cardsData.length; i++) {
+            const newCard = new Cards (cardsData[i].imagem, cardsData[i].categoria, cardsData[i].titulo, cardsData[i].resumo, cardsData[i].fonte, cardsData[i].noticia_completa);
+
+                const createdCard = newCard.createCards();
+
+                cardsContainer.append(createdCard);
         };
     };
 };
