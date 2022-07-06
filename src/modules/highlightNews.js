@@ -21,14 +21,12 @@ class HighlightNews {
 
         container.classList.add("highlight--container");
         figure.classList.add("highlight--imgBox");
-        img.classList.add("highlight--img");
         textBox.classList.add("highlight--textBox");
         category.classList.add("highlight--category");
         resume.classList.add("highlight--resume")
         title.classList.add("highlight--title");
         font.classList.add("highlight--font");
 
-        img.src = this.img;
         category.innerText = this.category;
         resume.innerText = this.resume;
         link.innerText = this.title;
@@ -38,8 +36,7 @@ class HighlightNews {
 
         title.append(link);
         textBox.append(category, title, resume, font);
-        figure.append(img);
-        container.append(figure, textBox);
+        container.append(textBox, figure);
 
         return container;
     };

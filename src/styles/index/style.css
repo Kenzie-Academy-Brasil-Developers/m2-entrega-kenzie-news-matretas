@@ -27,6 +27,7 @@ header {
     flex-wrap: wrap;
     align-items: flex-end;
     background-image: var(--imgURL);
+    background-size: cover;
     height: 385px;
 }
 
@@ -68,8 +69,8 @@ header {
 
 .highlight--title {
     color: white;
-    font-weight: 700;
     font-size: 20px;
+    font-weight: 700;
     margin-bottom: 20px;
 }
 
@@ -103,11 +104,8 @@ header {
     width: 522px;
     height: 180px;
     display: flex;
-    flex-flow: column;
     align-items: flex-start;
     padding: 20px;
-    justify-content: center;
-    height: auto;
     background: white;
 }
 
@@ -115,18 +113,24 @@ header {
     display: none;
 }
 
+.card--textBox {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
 .card--category {
     background: #D7E4FB;
     border-radius: 4px;
     height: 20px;
-    font-weight: 500;
-    font-size: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 5px;
-    font-weight: bold;
-    font-size: 12px;
+    font-weight: 500;
+    font-size: 15px;
     line-height: 14px;
     color: #5163D3;
     margin-bottom: 20px;
@@ -139,7 +143,7 @@ header {
 
 .card--title > a{
     color: #5163D3;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 18px;
     line-height: 110%;
     text-decoration: none;
@@ -149,19 +153,112 @@ header {
 .card--resume {
     margin-bottom: 15px;
     font-size: 15px;
+    font-weight: 400;
 }
 
 .card--font {
     font-weight: light;
     font-size: 15px;
+    font-weight: 300;
+}
+
+footer {
+    background:  #d3d1d1;
+    height: 48px;
+}
+
+footer > span {
+    padding: 10px 0 0 0;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    font-weight: 300;
 }
 
 @media (min-width: 769px) {
     .highlight {
         background-image: none;
+        display: flex;
+        justify-content: center;
     }
     
+    .highlight--container {
+        background: white;
+        width: 80%;
+        border: 1px solid #EEEEEE;
+        box-shadow: 3px 3px 5px rgba(27, 28, 30, 0.1);
+        border-radius: 4px;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+    
+    .highlight--textBox {
+        width: 60%;
+        align-content: space-between;
+        justify-content: space-evenly;
+        height: 90%;
+        margin: 0 auto;
+        margin-top: 0;
+    }
+
+    .highlight--category {
+        background: #D7E4FB;;
+    }
+
+    .highlight--title {
+        font-size: 30px;
+    }
+
+    .highlight--title > a {
+        background: none;
+        color: #5163D3;
+    }
+    
+    .highlight--resume {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .highlight--font {
+        background: none;
+        color: black;
+    }
+
     .highlight--imgBox {
         display:block;
+        height: 100%;
+        width: 40%;
+        background-image: var(--imgURL);
     }
-};
+
+    .card {
+        padding: 0;
+        width: 580px;
+        display: flex;
+        justify-content: flex-start;
+        height: auto;
+    }
+    
+    .card--imgBox {
+        display: block;
+        width: 40%;
+        height: 100%;
+        background-size: cover;
+    }
+
+    .card--textBox{
+        display: flex;
+        justify-content: space-evenly;
+        width: 60%;
+        padding: 0 20px;
+        flex-flow: column;
+    }
+
+    .card--category, .card--title, .card--resume, .card--font {
+        margin: 0;
+    }
+}
+
